@@ -25,20 +25,6 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-
-    ENV['simple-auth'] = {
-      authorizer: 'simple-auth-authorizer:token',
-      crossOriginWhitelist: ['http://localhost:8000']
-    };
-
-    ENV['simple-auth-token'] = {
-      //this is for development. 
-      serverTokenEndpoint: 'http://localhost:8000/api/auth/login',
-      identificationField: 'email',
-      tokenPropertyName: 'token',
-      authorizationPrefix: 'JWT',
-      authorizationHeaderName: 'Authorization',
-    };
   }
 
   if (environment === 'test') {
@@ -56,6 +42,22 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:token',
+    //this is added because of the cross platform authentication.
+    crossOriginWhitelist: ['http://localhost:8000']
+  };
+
+  ENV['simple-auth-token'] = {
+    //this is for development. 
+    serverTokenEndpoint: 'http://localhost:8000/api/auth/login',
+    identificationField: 'email',
+    tokenPropertyName: 'token',
+    authorizationPrefix: 'JWT ',
+    authorizationHeaderName: 'Authorization',
+    crossOriginWhitelist: ['http://localhost:8000'],
+  };
 
   return ENV;
 };
