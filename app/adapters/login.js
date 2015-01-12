@@ -1,5 +1,5 @@
 import DS from 'ember-data';
 
-export default DS.RESTAdapter.extend({
+export default DS.DjangoRESTAdapter.extend({
 	host: 'http://localhost:8000'
 });
