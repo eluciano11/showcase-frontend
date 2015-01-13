@@ -9,19 +9,7 @@ Router.map(function() {
   this.resource("projects", function() {
     this.route("add");
 
-    this.route("university", {
-      path: "/:university_slug"
-    });
-
-    this.route("universityDepartment", {
-      path: "/:university_slug/:department_slug"
-    });
-
-    this.route("department", {
-      path: "/:department"
-    });
-
-    this.route("specificProject", {
+    this.route("specific", {
       path: "/:project_slug"
     });
 
@@ -35,16 +23,35 @@ Router.map(function() {
   });
 
   this.resource("users", function() {
+    this.route("specific", {
+      path: "/:user_slug"
+    });
+
     this.route("logout");
     this.route("register");
-    this.route("settings");
     this.route("forgotPassword");
     this.route("resetPassword");
+  });
+
+  this.resource("departments", function() {
+    this.route("specific", {
+      path: "/:department_slug"
+    });
+  });
+
+  this.resource("universities", function() {
+    this.route("specific", {
+      path: "/:university_slug"
+    });
   });
 
   this.route("search");
   this.route("loading");
   this.route("login");
+
+  this.route("univerties", function() {
+    this.route("specific");
+  });
 });
 
 export default Router;
