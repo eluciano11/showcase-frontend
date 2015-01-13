@@ -48,10 +48,6 @@ Router.map(function() {
   this.route("search");
   this.route("loading");
   this.route("login");
-
-  this.route("univerties", function() {
-    this.route("specific");
-  });
 });
 
 export default Router;
