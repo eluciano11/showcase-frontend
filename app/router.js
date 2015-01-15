@@ -23,8 +23,11 @@ Router.map(function() {
   });
 
   this.resource("users", function() {
-    this.route("specific", {
-      path: "/:user_slug"
+    this.resource("users.edit", { path: "/edit" }, function(){
+      this.resource("users.edit.specific", { path: "/:user_slug" }, function(){
+        this.route("index", { path: "/" });
+        this.route("changePassword");
+      });
     });
 
     this.route("logout");
