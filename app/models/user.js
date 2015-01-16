@@ -7,10 +7,12 @@ export default DS.Model.extend({
   slug: DS.attr('string'),
   createdAt: DS.attr('date'),
   gravatarUrl: DS.attr('string'),
-  university: DS.belongsTo('university'),
-  department: DS.belongsTo('department'),
   isStaff: DS.attr('boolean'),
   isSuperuser: DS.attr('boolean'),
   isActive: DS.attr('boolean'),
-  token: DS.attr('string')
+  token: DS.attr('string'),
+
+  fullName: function(){
+    return this.get('firstName') + ' ' + this.get('lastName');
+  }.property('firstName', 'lastName')
 });

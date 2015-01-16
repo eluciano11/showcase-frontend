@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('department', 'Department', {
+moduleForModel('departments', 'Departments', {
   // Specify the other units that are required for this test.
   needs: []
 });

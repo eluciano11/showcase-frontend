@@ -7,5 +7,7 @@ export default DS.Model.extend({
 	slug: DS.attr('string'),
 	summary: DS.attr('string'),
 	screenshot: DS.attr('string'),
-	story: DS.attr('string')
+	story: DS.attr('string'),
+	university: DS.belongsTo('university'),
+	department: DS.belongsTo('department')
 });
