@@ -23,17 +23,19 @@ Router.map(function() {
   });
 
   this.resource("users", function() {
-    this.resource("users.edit", { path: "/edit" }, function(){
-      this.resource("users.edit.specific", { path: "/:user_slug" }, function(){
-        this.route("index", { path: "/" });
-        this.route("changePassword");
-      });
+    this.resource("users.edit", { path: "/edit/:user_slug" }, function() {
+      this.route("index", { path: "/" });
+      this.route("changePassword");
     });
 
     this.route("logout");
     this.route("register");
     this.route("forgotPassword");
     this.route("resetPassword");
+
+    this.route("edit", function() {
+      this.route("changePassword");
+    });
   });
 
   this.resource("departments", function() {
