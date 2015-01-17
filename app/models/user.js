@@ -7,9 +7,6 @@ export default DS.Model.extend({
   slug: DS.attr('string'),
   createdAt: DS.attr('date'),
   gravatarUrl: DS.attr('string'),
-  isStaff: DS.attr('boolean'),
-  isSuperuser: DS.attr('boolean'),
-  isActive: DS.attr('boolean'),
   token: DS.attr('string'),
 
   fullName: function(){

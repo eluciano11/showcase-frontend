@@ -23,7 +23,7 @@ Router.map(function() {
   });
 
   this.resource("users", function() {
-    this.resource("users.edit", { path: "/edit/:user_slug" }, function() {
+    this.resource("users.edit", { path: "/edit/me" }, function() {
       this.route("index", { path: "/" });
       this.route("changePassword");
     });
@@ -32,10 +32,6 @@ Router.map(function() {
     this.route("register");
     this.route("forgotPassword");
     this.route("resetPassword");
-
-    this.route("edit", function() {
-      this.route("changePassword");
-    });
   });
 
   this.resource("departments", function() {
