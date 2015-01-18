@@ -5,6 +5,6 @@ export default Ember.Route.extend({
 		return this.store.find('university', params.university_slug);
 	},
 	serialize: function(model){
-		return { university_slug: model.get('slug') }
+		return { university_slug: model.get('slug') };
 	}
 });

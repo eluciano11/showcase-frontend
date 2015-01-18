@@ -1,3 +1,10 @@
 html, body {
   margin: 20px;
 }
+.settings-img{
+	width: 100%;
+	height: 175px;
+}
+.rounded-img{
+	border-radius: 2%;
+}

@@ -23,8 +23,9 @@ Router.map(function() {
   });
 
   this.resource("users", function() {
-    this.route("specific", {
-      path: "/:user_slug"
+    this.resource("users.edit", { path: "/edit/me" }, function() {
+      this.route("index", { path: "/" });
+      this.route("changePassword");
     });
 
     this.route("logout");
@@ -48,10 +49,6 @@ Router.map(function() {
   this.route("search");
   this.route("loading");
   this.route("login");
-
-  this.route("univerties", function() {
-    this.route("specific");
-  });
 });
 
 export default Router;

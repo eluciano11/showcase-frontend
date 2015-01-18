@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('route:users/settings', 'UsersSettingsRoute', {
+moduleFor('route:users/edit/change-password', 'UsersEditChangePasswordRoute', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });
