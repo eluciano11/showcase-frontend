@@ -3,6 +3,6 @@ import ENV from '../../../config/environment';
 
 export default Ember.Route.extend({
 	model: function(){
-		return Ember.$.getJSON(ENV.APP.backendHost + ENV.APP.backendNamespace + '/users/me');
+		return Ember.$.getJSON(ENV.APP.backendHost + ENV.APP.backendNamespace + '/users/edit/me');
 	}
 });

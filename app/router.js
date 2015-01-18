@@ -28,6 +28,10 @@ Router.map(function() {
       this.route("changePassword");
     });
 
+    this.route("specific", {
+      path: "/:user_slug"
+    });
+
     this.route("logout");
     this.route("register");
     this.route("forgotPassword");

@@ -1,5 +1,6 @@
 html, body {
   margin: 20px;
+  background-color: #fff;
 }
 .settings-img{
 	width: 100%;
@@ -7,4 +8,28 @@ html, body {
 }
 .rounded-img{
 	border-radius: 2%;
+}
+.center-img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.info-card{
+	overflow: hidden;
+	padding: 1%;
+	border: solid 1px #bbb;
+	border-radius: 4px;
+}
+.info-card img{
+	margin-right: 2%;
+	width: 115px;
+}
+.info-card h5{
+	margin-bottom: 1%;
+}
+.user-info{
+	padding-left:1%;
+}
+.users .columns{
+	margin-left: 1%;
 }
