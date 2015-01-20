@@ -53,6 +53,7 @@ Router.map(function() {
   this.route("search");
   this.route("loading");
   this.route("login");
+  this.route("controller");
 });
 
 export default Router;
