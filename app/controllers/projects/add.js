@@ -15,6 +15,10 @@ export default Ember.Controller.extend({
 				self.set('hasFailed', true);
 				self.set('hasSucceeded', false);
 			});
+		},
+		dismiss: function(){
+			this.set('hasFailed', false);
+			this.set('hasSucceeded', false);
 		}
 	}
 });

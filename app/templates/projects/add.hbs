@@ -1,24 +1,36 @@
 {{outlet}}
-<div class="twelve columns">
-	<div class="one columns"></div>
-	<div class="ten columns">
-		{{#if hasSucceeded}}
-			<p>Your project was added.</p>
-		{{/if}}
-		{{#if hasFailed}}
-			<p>Upps! Something went wrong.</p>
-		{{/if}}
-		<h1>Add your project</h1>
-		<label for="title">Title</label>
-		{{input id="title" type="text" value=model.title}}
-		<label for="summary">Summary</label>
-		{{input id="summary" type="text" value=model.summary}}
-		<label for="story">Story</label>
-		{{textarea id="story" valueBinding="model.story"}}
-		<label for="university">University</label>
-		{{view "select" content=universities optionValuePath="content.id" optionLabelPath="content.name" id="university" value=model.university prompt="Please select your university."}}
-		<label for="departments">Department</label>
-		{{view "select" content=departments optionValuePath="content.id" optionLabelPath="content.name" id="departments" value=model.department prompt="Please select your department."}}
-		<button {{action 'add' model}}>Add Project</button>
-	</div>
+<div class="eight columns">
+	<h1>Add your project</h1>
+	<hr>
+	{{#if hasSucceeded}}
+		<div class="u-full-width alert success">
+			<p>
+				Your project was added.
+				<span class="u-pull-right" {{action 'dismiss'}}>
+					&#x2715;					
+				</span>					
+			</p>	
+		</div>
+	{{/if}}
+	{{#if hasFailed}}
+		<div class="u-full-width alert error">
+			<p>
+				Upps! Something went wrong.
+				<span class="u-pull-right" {{action 'dismiss'}}>
+					&#x2715;					
+				</span>
+			</p>
+		</div>
+	{{/if}}
+	<label for="title">Title</label>
+	{{input id="title" type="text" value=model.title class="u-full-width"}}
+	<label for="summary">Summary</label>
+	{{input id="summary" type="text" value=model.summary class="u-full-width"}}
+	<label for="story">Story</label>
+	{{textarea id="story" valueBinding="model.story" class="u-full-width"}}
+	<label for="university">University</label>
+	{{view "select" content=universities optionValuePath="content.id" optionLabelPath="content.name" id="university" value=model.university prompt="Please select your university." class="u-full-width"}}
+	<label for="departments">Department</label>
+	{{view "select" content=departments optionValuePath="content.id" optionLabelPath="content.name" id="departments" value=model.department prompt="Please select your department." class="u-full-width"}}
+	<button {{action 'add' model}}>Add Project</button>
 </div>

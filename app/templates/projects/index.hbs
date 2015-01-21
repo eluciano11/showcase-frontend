@@ -1,6 +1,23 @@
-<h1>hello</h1>
-<button {{action 'something'}}>Do it!</button>
-{{#each project in model}}
-	<h1>{{project.title}}</h1>
-	<p>{{project.story}}</p>
-{{/each}}
+<div class="col-md-12">
+	<div class="col-md-offset-2">
+		<div class="col-md-8">
+			<div class="header text-center">
+				<h1>Projects</h1>
+				<p>Share your project expiriences with others {{link-to "here" "projects.add"}}.</p>
+			</div>
+			<hr>
+			<div class="projects">
+				<div class="text-center">
+					{{#each project in model}}
+						<div class="project">
+							<h2>{{project.title}}</h2>
+							<p>{{project.summary}}</p>
+							{{link-to "Read More" "projects.specific" project.id}}
+							<hr>
+						</div>
+					{{/each}}		
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

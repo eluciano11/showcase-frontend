@@ -10,15 +10,15 @@ Router.map(function() {
     this.route("add");
 
     this.route("specific", {
-      path: "/:project_slug"
+      path: "/:project_id"
     });
 
     this.route("edit", {
-      path: "/:project_slug/edit"
+      path: "/:project_id/edit"
     });
 
     this.route("delete", {
-      path: "/:project_slug/delete"
+      path: "/:project_id/delete"
     });
   });
 
@@ -29,7 +29,7 @@ Router.map(function() {
     });
 
     this.route("specific", {
-      path: "/:user_slug"
+      path: "/:user_id"
     });
 
     this.route("logout");
@@ -40,13 +40,13 @@ Router.map(function() {
 
   this.resource("departments", function() {
     this.route("specific", {
-      path: "/:department_slug"
+      path: "/:department_id"
     });
   });
 
   this.resource("universities", function() {
     this.route("specific", {
-      path: "/:university_slug"
+      path: "/:university_id"
     });
   });
 
