@@ -1,12 +1,9 @@
 <div class="col-md-12">
-	<div class="col-md-offset-2">
-		<div class="col-md-8">
-			<div class="header text-center">
-				<h1>Community</h1>
-				<p>Haven't registered? Join us {{link-to "here" "users.register"}}</p>
-			</div>
-		</div>
+	<div class="header text-center">
+		<h1>Community</h1>
+		<p>Haven't registered? Join us {{link-to "here" "users.register"}}</p>
 	</div>
+</div>
 	{{#each user in model}}
 	<div class="col-md-4 info-card">
 		<img {{bind-attr class=":rounded-img :pull-left" src="user.gravatarUrl"}}>

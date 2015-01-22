@@ -1,36 +1,49 @@
 {{outlet}}
-<div class="eight columns">
-	<h1>Add your project</h1>
+<div class="col-md-12">
+	<div class="add-project">
+		<div class="project-header text-center">
+			<h1>
+				{{input class="col-md-12" type="text" placeholder="Add your project title" value=model.title}}
+			</h1>
+			<br>
+			<h4>
+				{{input class="col-md-12" type="text" placeholder="Add a summary of your article" value=model.summary}}
+			</h4>
+			<br>
+			<div class="form-group">
+				{{view "select" content=universities optionValuePath="content.id" optionLabelPath="content.name" id="university" value=model.university prompt="Please select your university."}}
+			</div>
+			<div class="form-group text-center">
+				{{view "select" content=departments optionValuePath="content.id" optionLabelPath="content.name" id="departments" value=model.department prompt="Please select your department."}}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col-md-offset-2 col-md-8">
 	<hr>
-	{{#if hasSucceeded}}
-		<div class="u-full-width alert success">
-			<p>
-				Your project was added.
-				<span class="u-pull-right" {{action 'dismiss'}}>
-					&#x2715;					
-				</span>					
-			</p>	
+	<div class="add-project">
+		{{#if hasSucceeded}}
+			<div class="u-full-width alert success">
+				<p>
+					Your project was added.
+					<span class="u-pull-right" {{action 'dismiss'}}>
+						&#x2715;					
+					</span>					
+				</p>	
+			</div>
+		{{/if}}
+		{{#if hasFailed}}
+			<div class="u-full-width alert error">
+				<p>
+					Upps! Something went wrong.
+					<span class="u-pull-right" {{action 'dismiss'}}>
+						&#x2715;					
+					</span>
+				</p>
+			</div>
+		{{/if}}
+		<div class="project-story">
+			{{textarea type="text" cols="66" rows="100%" placeholder="Start writing your story"}}
 		</div>
-	{{/if}}
-	{{#if hasFailed}}
-		<div class="u-full-width alert error">
-			<p>
-				Upps! Something went wrong.
-				<span class="u-pull-right" {{action 'dismiss'}}>
-					&#x2715;					
-				</span>
-			</p>
-		</div>
-	{{/if}}
-	<label for="title">Title</label>
-	{{input id="title" type="text" value=model.title class="u-full-width"}}
-	<label for="summary">Summary</label>
-	{{input id="summary" type="text" value=model.summary class="u-full-width"}}
-	<label for="story">Story</label>
-	{{textarea id="story" valueBinding="model.story" class="u-full-width"}}
-	<label for="university">University</label>
-	{{view "select" content=universities optionValuePath="content.id" optionLabelPath="content.name" id="university" value=model.university prompt="Please select your university." class="u-full-width"}}
-	<label for="departments">Department</label>
-	{{view "select" content=departments optionValuePath="content.id" optionLabelPath="content.name" id="departments" value=model.department prompt="Please select your department." class="u-full-width"}}
-	<button {{action 'add' model}}>Add Project</button>
+	</div>
 </div>

@@ -1,11 +1,11 @@
 import Ember from 'ember';
-import ENV from '../../../config/environment'
+import ENV from '../../../config/environment';
 
 export default Ember.Controller.extend({
 	userInfo: '',
 	actions: {
 		update: function(data){
-			$.ajax({
+			Ember.$.ajax({
 				url: ENV.APP.backendHost + ENV.APP.backendNamespace + '/users/edit/me',
 				type: 'PATCH',
 				data: JSON.stringify(data),
