@@ -22,8 +22,16 @@
 		</div>
 		<div class="pull-right">
 			<ul class="nav navbar-nav navbar-form navbar-right">
-        		{{link-to "Login" 'login' class="btn btn-success"}}
-        		{{link-to "Register" 'users.register' class="btn btn-primary"}}
+			{{#if session.isAuthenticated}}
+				{{#if inAddProject}}
+					<a class="btn btn-success"{{action "add"}}>Save</a>
+					<a class="btn btn-primary">Preview</a>
+				{{/if}}
+				<a class="btn btn-primary" {{action 'invalidateSession'}}>Logout</a>
+			{{else}}
+	       		{{link-to "Login" 'login' class="btn btn-success"}}
+	       		{{link-to "Register" 'users.register' class="btn btn-primary"}}
+			{{/if}}
 			</ul>	
 		</div>
 	</div>

@@ -1,20 +1,17 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	departments: '',
-	universities: '',
-	hasFailed: false,
-	hasSucceeded: false,
 	actions: {
-		add: function(model){
-			var self = this;
-			model.save().then(function(){
-				self.set('hasFailed', false);
-				self.set('hasSucceeded', true);
-			}, function(){
-				self.set('hasFailed', true);
-				self.set('hasSucceeded', false);
+		add: function(){
+			var data = this.getProperties('title', 'summary', 'university', 'department', 'story');
+			var project = this.store.createRecord('project', {
+				title: data.title,
+				summary: data.summary,
+				university: data.university,
+				department: data.department,
+				story: data.story
 			});
+			project.save();
 		},
 		dismiss: function(){
 			this.set('hasFailed', false);
