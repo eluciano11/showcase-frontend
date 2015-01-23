@@ -18,23 +18,53 @@
         		<li>
         			{{link-to "Users" 'users'}}
         		</li>
+        		<li>
+        			{{link-to "Search" 'search'}}
+        		</li>
 			</ul>
 		</div>
-		<div class="pull-right">
-			<ul class="nav navbar-nav navbar-form navbar-right">
+		<ul class="nav navbar-nav navbar-form navbar-right">
 			{{#if session.isAuthenticated}}
-				{{#if inAddProject}}
-					<a class="btn btn-success"{{action "add"}}>Save</a>
-					<a class="btn btn-primary">Preview</a>
-				{{/if}}
-				<img {{bind-attr src=session.currentUser.gravatarUrl}} class="img-circle" width="35px" height="35px">
-				<a class="btn btn-primary" {{action 'invalidateSession'}}>Logout</a>
+				<li class="dropdown pull-right">
+		            <a href="#" id="current-user-gravatar" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<img {{bind-attr src=session.currentUser.gravatarUrl}} class="img-circle" width="35px" height="35px">
+		            </a>
+		            <ul class="dropdown-menu" role="menu">
+		                <li>
+		                	{{link-to session.currentUser.fullName "users.specific" session.currentUser.id}}
+		                </li>
+		            	<li>
+							{{link-to "Settings" "users.edit"}}
+		            	</li>
+		            	<li>
+		            		{{link-to "Change Password" "users.edit.changePassword"}}
+		            	</li>
+			            <li>
+			            	{{link-to "Write about your project" "projects.add"}}
+			            </li>
+			            <li class="divider"></li>
+			            <li>
+			            	<a {{action 'invalidateSession'}}>Logout</a>
+			            </li>
+		          	</ul>
+		        </li>
 			{{else}}
 	       		{{link-to "Login" 'login' class="btn btn-success"}}
 	       		{{link-to "Register" 'users.register' class="btn btn-primary"}}
 			{{/if}}
-			</ul>	
-		</div>
+		</ul>
+		{{#if session.isAuthenticated}}
+			<div class="pull-right">
+				<ul class="nav navbar-nav navbar-form navbar-right">
+					{{#if inAddProject}}
+						<a class="btn btn-success"{{action "add"}}>Save</a>
+						<a class="btn btn-primary">Preview</a>
+					{{else}}
+					{{link-to "Share a Project" "projects.add" class="btn btn-success"}}	
+				</ul>
+			</div>
+			{{/if}}
+		{{/if}}
 	</div>
   </div>
 </nav>

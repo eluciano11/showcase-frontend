@@ -142,3 +142,9 @@ textarea{
 .add-project option{
     text-align: center;
 }
+.add-project-nav-btn{
+	margin-right: 1%;
+}
+#current-user-gravatar{
+	padding: 0;
+}
