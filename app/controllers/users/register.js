@@ -1,9 +1,9 @@
 import Ember from 'ember';
-import ENV from '../../config/environment'
+import ENV from '../../config/environment';
 
 export default Ember.Controller.extend({
 	needs: ['login'],
-	failedAuthentication: false,
+	hasFailed: false,
 	actions: {
 		create: function(){
 			var data = this.getProperties('firstName', 'lastName', 'email', 'password');
@@ -21,7 +21,7 @@ export default Ember.Controller.extend({
 				controller.set('identification', response.email);
 				self.transitionToRoute('login');
 			}, function(){
-				self.set('failedAuthentication', true);
+				self.set('hasFailed', true);
 			});
 		}
 	}

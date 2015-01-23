@@ -27,6 +27,7 @@
 					<a class="btn btn-success"{{action "add"}}>Save</a>
 					<a class="btn btn-primary">Preview</a>
 				{{/if}}
+				<img {{bind-attr src=session.currentUser.gravatarUrl}} class="img-circle" width="35px" height="35px">
 				<a class="btn btn-primary" {{action 'invalidateSession'}}>Logout</a>
 			{{else}}
 	       		{{link-to "Login" 'login' class="btn btn-success"}}

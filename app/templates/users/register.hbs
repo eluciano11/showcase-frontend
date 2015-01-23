@@ -6,6 +6,11 @@
 </div>
 <div class="col-md-offset-3">
 	<div class="col-md-8">
+		{{#if hasFailed}}
+			<div class="col-md-12 alert alert-danger">
+				<strong>Something when wrong</strong>
+			</div>
+		{{/if}}
 		<form {{action 'create' on='submit'}}>
 			<div class="form-group">
 				<label for="firstName">First Name</label>

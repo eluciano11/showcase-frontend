@@ -6,7 +6,7 @@ export default Ember.Controller.extend(LoginControllerMixin, {
 	authenticator: 'simple-auth-authenticator:token',
 	actions: {
 		dismiss: function(){
-			this.get('successfullyCreated',false);
+			this.get('successfullyCreated', false);
 		}
 	}
 });
