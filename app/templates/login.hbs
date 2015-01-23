@@ -7,6 +7,14 @@
 </div>
 <div class="col-md-offset-3">
 	<div class="col-md-8">
+		{{#if successfullyCreated}}
+			<div class="col-md-12 alert alert-success" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span {{action 'dismiss'}} aria-hidden="true">&times;</span>
+				</button>
+				<strong>You have been successfully registed!</strong> You can now login.
+			</div>
+		{{/if}}
 		<form {{action 'authenticate' on='submit'}} role="form">
 			<div class="form-group">
 				<label for="identification">Email</label>
