@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	model: function(){
-		var slug = this.modelFor('users.edit').user_slug;
-		return this.store.find('user', slug);
-	}
+	// model: function(){
+	// 	var id = this.modelFor('users.edit').id;
+	// 	return this.store.find('user', id);
+	// }
 });
