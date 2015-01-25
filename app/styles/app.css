@@ -148,3 +148,7 @@ textarea{
 #current-user-gravatar{
 	padding: 0;
 }
+.nothing-found{
+	color: rgba(187, 187, 187, 0.34);
+	margin: 5%;
+}
