@@ -151,4 +151,5 @@ textarea{
 .nothing-found{
 	color: rgba(187, 187, 187, 0.34);
 	margin: 5%;
+	white-space: nowrap;
 }
