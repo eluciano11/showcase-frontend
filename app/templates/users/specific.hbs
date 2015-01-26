@@ -1,1 +1,28 @@
-{{outlet}}
+<div class="col-md-12">
+	<div class="header text-center">
+		<img {{bind-attr src=model.gravatarUrl class=":img-circle"}}>
+		<h1>{{model.fullName}}</h1>
+		<p>Joined {{transform-date model.createdAt}}</p>
+	</div>
+</div>
+<div class="col-md-offset-3">
+	<div class="col-md-8 text-center">
+		<hr>
+		{{#if projects}}
+			{{#each project in projects}}
+				<div class="project">
+					<h2>{{project.title}}</h2>
+					<p>{{project.summary}}</p>
+					{{link-to "Read More" "projects.specific" project.id}}
+					<hr>
+				</div>
+			{{/each}}
+		{{else}}
+			<div class="nothing-found">
+				<h1>
+					No projects have been added.
+				</h1>
+			</div>
+		{{/if}}
+	</div>
+</div>
