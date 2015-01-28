@@ -1,0 +1,22 @@
+<div class="no-display" id="imagePreview">
+	<div class="col-md-12">
+		<img {{bind-attr src=view.src class=":section-image"}}>
+	</div>
+	{{#if view.noImageAdded}}
+		<div class="image-preview-buttons">
+			<div class="col-md-6">
+				<button class="btn btn-success btn-lg btn-block" {{action 'save' target="view"}}>
+					Save Image
+				</button>
+			</div>
+			<div class="col-md-6">
+				<button class="btn btn-primary btn-lg btn-block" {{action 'cancel' target="view"}}>
+					Upload Another
+				</button>
+			</div>
+		</div>
+	{{/if}}
+</div>
+<div class="dropzone" id="dropzone">
+	<p>Drop images here.</p>
+</div>

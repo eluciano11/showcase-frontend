@@ -153,3 +153,38 @@ textarea{
 	margin: 5%;
 	white-space: nowrap;
 }
+.dropzone{
+	width: 100%;
+	height: 350px;
+	border: 2px dashed #ccc;
+	text-align: center;
+}
+.dragover{
+	background-color: rgba(163, 163, 163, 0.05);
+}
+.dropzone p{
+	color: #bbb;
+	font-size: 30px;
+	padding: 20%;
+}
+.newImageDetails {
+ margin: 0 auto;
+ padding: 5%;
+ width: 90%;
+ text-align: center;
+ z-index: 200;
+}
+.no-display{
+	display: none;
+}
+.section-image{
+	width: 100%;
+	height: 350px;
+	margin-bottom: 2%;
+}
+.image-preview-buttons{
+	margin-bottom: 2%;
+}
+.project-story{
+	padding-top: 5%;
+}
