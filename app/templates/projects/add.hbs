@@ -21,7 +21,9 @@
 </div>
 <div class="col-md-offset-2 col-md-8">
 	<hr>
-	{{input type="file" value=screenshot id="file"}}
+
+	{{view 'dropbox'}}
+
 	<div class="add-project">
 		{{#if hasSucceeded}}
 			<div class="u-full-width alert success">
@@ -33,6 +35,7 @@
 				</p>	
 			</div>
 		{{/if}}
+
 		{{#if hasFailed}}
 			<div class="u-full-width alert error">
 				<p>
@@ -43,6 +46,7 @@
 				</p>
 			</div>
 		{{/if}}
+
 		<div class="project-story">
 			{{textarea type="text" cols="66" rows="100%" placeholder="Start writing your story" value=story}}
 		</div>

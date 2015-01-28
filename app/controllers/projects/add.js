@@ -1,10 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	file: null,
 	actions: {
 		add: function(){
 			var data = this.getProperties('title', 'summary', 'university', 'department', 'story');
-			var fileUploaded = document.getElementById('file').files[0];
 			
 			var formData = new FormData();
 			formData.append('title', data.title);
@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
 			formData.append('university', data.university);
 			formData.append('department', data.department);
 			formData.append('story', data.story);
-			formData.append('screenshot', fileUploaded);
+			formData.append('screenshot', this.get('file'));
 
 			var self = this;
 
