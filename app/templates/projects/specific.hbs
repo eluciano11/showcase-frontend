@@ -1,0 +1,13 @@
+<img {{bind-attr src=model.screenshot class=":sp-cover-image"}}>
+<div class="sp-header">
+	<h1>{{model.title}}</h1>
+	<p>{{model.summary}}</p>
+	<p>{{transform-date model.createdAt}}</p>
+</div>
+<div class="col-md-offset-3">
+	<div class="col-md-8">
+		<div class="sp-content">
+			<p>{{model.story}}</p>
+		</div>
+	</div>
+</div>

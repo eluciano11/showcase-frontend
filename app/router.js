@@ -23,8 +23,13 @@ Router.map(function() {
   });
 
   this.resource("users", function() {
-    this.resource("users.edit", { path: "/edit/me" }, function() {
-      this.route("index", { path: "/" });
+    this.resource("users.edit", {
+      path: "/edit/me"
+    }, function() {
+      this.route("index", {
+        path: "/"
+      });
+
       this.route("changePassword");
     });
 
