@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	file: null,
+	displayImagePreview: false,
+	displayDropbox: true,
+	displayPreviewButtons: false,
 	actions: {
 		add: function(){
 			var data = this.getProperties('title', 'summary', 'university', 'department', 'story');

@@ -40,7 +40,10 @@ Router.map(function() {
     this.route("register");
     this.route("forgotPassword");
     this.route("resetPassword");
-    this.route("projects", { path: '/me/projects' });
+
+    this.route("projects", {
+      path: "/me/projects"
+    });
   });
 
   this.resource("departments", function() {

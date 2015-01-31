@@ -1,0 +1,53 @@
+{{outlet}}
+<div class="col-md-12">
+	<div class="add-project">
+		<div class="project-header text-center">
+			<h1>
+				{{input class="col-md-12" type="text" placeholder="Add your project title" value=model.title}}
+			</h1>
+			<br>
+			<h4>
+				{{input class="col-md-12" type="text" placeholder="Add a summary of your article" value=model.summary}}
+			</h4>
+			<br>
+			<div class="form-group">
+				{{view "select" content=universities optionValuePath="content.id" optionLabelPath="content.name" id="university" value=selectedUniversity prompt="Please select your university." selection=selectedUniversity}}
+			</div>
+			<div class="form-group text-center">
+				{{view "select" content=departments optionValuePath="content.id" optionLabelPath="content.name" id="departments" value=selectedUniversity prompt="Please select your department." selection=selectedDepartment}}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col-md-offset-2 col-md-8">
+	<hr>
+	{{view 'dropbox'}}
+
+	<div class="add-project">
+		{{#if hasSucceeded}}
+			<div class="u-full-width alert success">
+				<p>
+					Your project was added.
+					<span class="u-pull-right" {{action 'dismiss'}}>
+						&#x2715;					
+					</span>					
+				</p>	
+			</div>
+		{{/if}}
+
+		{{#if hasFailed}}
+			<div class="u-full-width alert error">
+				<p>
+					Upps! Something went wrong.
+					<span class="u-pull-right" {{action 'dismiss'}}>
+						&#x2715;					
+					</span>
+				</p>
+			</div>
+		{{/if}}
+
+		<div class="project-story">
+			{{textarea type="text" cols="66" rows="100%" placeholder="Start writing your story" value=model.story}}
+		</div>
+	</div>
+</div>

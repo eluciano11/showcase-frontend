@@ -3,8 +3,6 @@ import Ember from 'ember';
 export default Ember.View.extend({
 	needs: ['previewImages'],
 	templateName: 'dropbox',
-	src: '',
-	noImageAdded: true,
 	dragEnter: function(event){
 		event.preventDefault();
 		document.getElementById('dropzone').className = "dropzone dragover";
@@ -26,12 +24,12 @@ export default Ember.View.extend({
 			controller.set('file', fileUploaded);
 
 			var render = new FileReader();
-			var self = this;
 			render.readAsDataURL(fileUploaded);
 			render.onload = function(imgsrc){
-				self.set('src', imgsrc.target.result);
-				document.getElementById('imagePreview').className = "";
-				document.getElementById('dropzone').className = "no-display";
+				controller.set('src', imgsrc.target.result);
+				controller.set('displayDropbox', false);
+				controller.set('displayImagePreview', true);
+				controller.set('displayPreviewButtons', true);
 			};
 	 	}
 	 	else{
@@ -41,12 +39,15 @@ export default Ember.View.extend({
 	},
 	actions:{
 		cancel: function() {
-			this.set('src', '');
-			document.getElementById('imagePreview').className = "no-display";
-			document.getElementById('dropzone').className = "dropzone";
+			var controller = this.get('controller').controllerFor('projects/add');
+			controller.set('src', '');
+			controller.set('displayDropbox', true);
+			controller.set('displayImagePreview', false);
+			controller.set('displayPreviewButtons', false);
 		},
 		save: function() {
-			this.set('noImageAdded', false);
+			var controller = this.get('controller').controllerFor('projects/add');
+			controller.set('displayPreviewButtons', false);
 		}
 	}
 });

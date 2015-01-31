@@ -1,8 +1,10 @@
-<div class="no-display" id="imagePreview">
-	<div class="col-md-12">
-		<img {{bind-attr src=view.src class=":section-image"}}>
-	</div>
-	{{#if view.noImageAdded}}
+<div id="imagePreview">
+	{{#if displayImagePreview}}
+		<div class="col-md-12">
+			<img {{bind-attr src=src class=":section-image"}}>
+		</div>
+	{{/if}}
+	{{#if displayPreviewButtons}}
 		<div class="image-preview-buttons">
 			<div class="col-md-6">
 				<button class="btn btn-success btn-lg btn-block" {{action 'save' target="view"}}>
@@ -17,6 +19,8 @@
 		</div>
 	{{/if}}
 </div>
-<div class="dropzone" id="dropzone">
-	<p>Drop a cover image here.</p>
-</div>
+{{#if displayDropbox}}
+	<div class="dropzone" id="dropzone">
+		<p>Drop a cover image here.</p>
+	</div>
+{{/if}}
