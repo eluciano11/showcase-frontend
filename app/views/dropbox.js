@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.View.extend({
-	needs: ['previewImages'],
+	needs: ['controllers.projects/add', 'controllers.projects/edit'],
 	templateName: 'dropbox',
 	dragEnter: function(event){
 		event.preventDefault();
@@ -9,13 +9,13 @@ export default Ember.View.extend({
 	},
 	dragOver: function(event){
 		event.preventDefault();
-		console.log(document.getElementById('dropzone'));
 		document.getElementById('dropzone').className = 'dropzone dragover';
 	},
 	drop: function(event) {
 	 	event.preventDefault();
 	 	var files = event.dataTransfer.files;
-	 	var controller = this.get('controller').controllerFor('projects/add');
+	 	var controller = this.get('controller');
+
 	 	if(files.length === 1){
 	 		var fileUploaded;
 	 		for (var i = 0; i >= 0; i--) {
@@ -24,6 +24,7 @@ export default Ember.View.extend({
 			controller.set('file', fileUploaded);
 
 			var render = new FileReader();
+
 			render.readAsDataURL(fileUploaded);
 			render.onload = function(imgsrc){
 				controller.set('src', imgsrc.target.result);
@@ -37,16 +38,16 @@ export default Ember.View.extend({
 	 		console.log(files);
 	 	}
 	},
-	actions:{
+	actions: {
 		cancel: function() {
-			var controller = this.get('controller').controllerFor('projects/add');
+			var controller = this.get('controller');
 			controller.set('src', '');
 			controller.set('displayDropbox', true);
 			controller.set('displayImagePreview', false);
 			controller.set('displayPreviewButtons', false);
 		},
 		save: function() {
-			var controller = this.get('controller').controllerFor('projects/add');
+			var controller = this.get('controller');
 			controller.set('displayPreviewButtons', false);
 		}
 	}
