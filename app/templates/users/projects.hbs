@@ -1,0 +1,17 @@
+<div class="col-md-12">
+	<div class="header text-center">
+		<h1>Edit Projects</h1>
+		<p>See other projects {{link-to "here" "projects"}}</p>
+	</div>
+</div>
+<div class="col-md-offset-1">
+	<div class="col-md-10">
+		{{#each project in model}}
+			<div class="col-md-6 text-center usp-panel">
+				<img {{bind-attr src=project.screenshot class=":usp-img"}}>
+				<h3>{{link-to project.title "projects.specific" project.id}}</h3>
+				{{link-to "Edit project" "projects.edit" project.id}}
+			</div>
+		{{/each}}
+	</div>
+</div>
