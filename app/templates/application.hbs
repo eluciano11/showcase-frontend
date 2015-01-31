@@ -61,12 +61,17 @@
 				<ul class="nav navbar-nav navbar-form navbar-right">
 					{{#if inAddProject}}
 						<a class="btn btn-success"{{action "add"}}>Save</a>
-						<a class="btn btn-primary">Preview</a>
-					{{else}}
-					{{link-to "Share a Project" "projects.add" class="btn btn-success"}}	
+					{{/if}}
+
+					{{#if inEditProject}}
+						<a class="btn btn-success" {{action "edit"}}>Save Changes</a>
+					{{/if}}
+
+					{{#if normalNav}}
+						{{link-to "Share a Project" "projects.add" class="btn btn-success"}}
+					{{/if}}
 				</ul>
 			</div>
-			{{/if}}
 		{{/if}}
 	</div>
   </div>

@@ -2,7 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	beforeModel: function(){
-		this.controllerFor('application').set('inAddProject', true);
+		var controller = this.controllerFor('application');
+		controller.set('inAddProject', true);
+		controller.set('normalNav', false);
 	},
 	setupController: function(controller, model){
 		controller.set('departments', this.store.find('department'));
@@ -11,7 +13,9 @@ export default Ember.Route.extend({
 	},
 	actions: {
 		willTransition: function(){
-			this.controllerFor('application').set('inAddProject', false);
+		var controller = this.controllerFor('application');
+		controller.set('inAddProject', false);
+		controller.set('normalNav', true);
 		}
 	}
 });
