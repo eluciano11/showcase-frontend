@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
 	displayImagePreview: false,
 	displayDropbox: true,
 	displayPreviewButtons: false,
+	dropboxMessage: 'Drop a cover image here.',
 	actions: {
 		add: function(){
 			var data = this.getProperties('title', 'summary', 'university', 'department', 'story');

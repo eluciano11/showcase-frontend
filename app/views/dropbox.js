@@ -34,8 +34,7 @@ export default Ember.View.extend({
 			};
 	 	}
 	 	else{
-	 		console.log('motherfucker!');
-	 		console.log(files);
+	 		controller.set('dropboxMessage', 'You may only upload one cover image.');
 	 	}
 	},
 	actions: {
@@ -45,6 +44,7 @@ export default Ember.View.extend({
 			controller.set('displayDropbox', true);
 			controller.set('displayImagePreview', false);
 			controller.set('displayPreviewButtons', false);
+			controller.set('dropboxMessage', 'Drop a cover image here.');
 		},
 		save: function() {
 			var controller = this.get('controller');
