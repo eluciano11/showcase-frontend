@@ -25,8 +25,6 @@ export default Ember.Controller.extend({
 				if ('department' in changes) { formData.append('department', model.get('department')); }
 			}
 
-			var self = this;
-
 			if (model.get('isDirty') && !this.get('file')){
 				var  data = {};
 
