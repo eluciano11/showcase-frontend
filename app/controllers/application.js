@@ -8,12 +8,13 @@ export default Ember.Controller.extend(ApplicationRouteMixin, {
 	normalNav: true,
 	actions: {
 		add: function(){
-			var controller = this.get('controllers.projects/add');
-			controller.send('add');
+			this.get('controllers.projects/add').send('add');
 		},
-		edit: function(){
-			var controller = this.get('controllers.projects/edit');
-			controller.send('saveChanges');
+		saveEdit: function(){
+			this.get('controllers.projects/edit').send('saveChanges');
+		},
+		cancelEdit: function(){
+			this.get('controllers.projects/edit').send('cancelChanges');
 		}
 	}
 });

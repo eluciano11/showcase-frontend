@@ -64,7 +64,8 @@
 					{{/if}}
 
 					{{#if inEditProject}}
-						<a class="btn btn-success" {{action "edit"}}>Save Changes</a>
+						<a class="btn btn-success" {{action "saveEdit"}}>Save Changes</a>
+						<a class="btn btn-primary" {{action "cancelEdit"}}>Cancel Changes</a>
 					{{/if}}
 
 					{{#if normalNav}}
