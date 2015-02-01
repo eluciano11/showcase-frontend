@@ -50,12 +50,11 @@ export default Ember.Controller.extend({
 					type: 'PATCH',
 					data: formData,
 					processData: false,  // tell jQuery not to process the data
-						contentType: false   // tell jQuery not to set contentType
+					contentType: false   // tell jQuery not to set contentType
 				}).then(function(response){
-					self.set('model', self.store.find('project', response.id));
+					model.set('screenshot', response.screenshot);
 				});
 			}
-
 
 			this.transitionToRoute('projects.specific', model.get('id'));
 		},
