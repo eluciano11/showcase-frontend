@@ -6,6 +6,8 @@ export default Ember.Controller.extend({
 	displayDropbox: true,
 	displayPreviewButtons: false,
 	dropboxMessage: 'Drop a cover image here.',
+	successMessage: 'Your project was added successfully.',
+	errorMessage: 'Your project was not added.',
 	actions: {
 		add: function(){
 			var data = this.getProperties('title', 'summary', 'university', 'department', 'story');
@@ -27,13 +29,14 @@ export default Ember.Controller.extend({
 				processData: false,  // tell jQuery not to process the data
   				contentType: false   // tell jQuery not to set contentType
 			}).then(function(response){
+				self.set('displaySuccessNotification', true);
+				self.set('displayErrorNotification', false);
 				self.store.find('project', response.id);
 				self.transitionToRoute('projects.specific', response.id);
+			}, function(){
+				self.set('displayErrorNotification', true);
+				self.set('displaySuccessNotification', false);
 			});
-		},
-		dismiss: function(){
-			this.set('hasFailed', false);
-			this.set('hasSucceeded', false);
 		}
 	}
 });

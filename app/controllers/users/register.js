@@ -3,7 +3,7 @@ import ENV from '../../config/environment';
 
 export default Ember.Controller.extend({
 	needs: ['login'],
-	hasFailed: false,
+	errorMessage: 'Something went wrong. Your account was not created.',
 	actions: {
 		create: function(){
 			var data = this.getProperties('firstName', 'lastName', 'email', 'password');
@@ -17,11 +17,13 @@ export default Ember.Controller.extend({
 				}
 			}).then(function(response){
 				var controller = self.get('controllers.login');
-				controller.set('successfullyCreated', true);
+				controller.set('displaySuccessNotification', true);
+				controller.set('displayErrorNotification', false);
 				controller.set('identification', response.email);
 				self.transitionToRoute('login');
 			}, function(){
-				self.set('hasFailed', true);
+				self.set('displayErrorNotification', true);
+				self.set('displaySuccessNotification', false);
 			});
 		}
 	}

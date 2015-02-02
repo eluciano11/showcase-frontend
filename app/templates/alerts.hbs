@@ -1,0 +1,21 @@
+{{#if displaySuccessNotification}}
+	<div class="col-md-4 pull-right notification">
+		<div class="alert alert-success notification-content" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span {{action 'dismiss' target="view"}} aria-hidden="true">&times;</span>
+			</button>
+			<p>{{successMessage}}</p>
+		</div>
+	</div>
+{{/if}}
+{{#if displayErrorNotification}}
+	<div class="col-md-4 pull-right notification">
+		<div class="alert alert-danger notification-content" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span {{action 'dismiss' target="view"}} aria-hidden="true">&times;</span>
+			</button>
+			<p>{{errorMessage}}</p>
+		</div>
+	</div>
+{{/if}}
+

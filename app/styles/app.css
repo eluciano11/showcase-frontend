@@ -222,3 +222,10 @@ textarea{
 	padding: 2%;
 	margin-bottom: 2%;
 }
+.notification{
+	position: relative;
+	z-index: 100;
+}
+.notification-content{
+	position: absolute;
+}

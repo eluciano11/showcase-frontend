@@ -2,8 +2,8 @@ import Ember from 'ember';
 import ENV from '../../../config/environment';
 
 export default Ember.Controller.extend({
-	updateSuccess: false,
-	updateError: false,
+	successMessage: 'Your account was updated successfully.',
+	errorMessage: 'Something when wrong. Your account was not updated.',
 	actions: {
 		update: function(){
 			var data = this.get('model');
@@ -16,11 +16,11 @@ export default Ember.Controller.extend({
 					'Content-Type': "application/json"
 				}
 			}).then(function(){
-				self.set('updateSuccess', true);
-				self.set('updateError', false);
+				self.set('displaySuccessNotification', true);
+				self.set('displayErrorNotification', false);
 			}, function(){
-				self.set('updateSuccess', false);
-				self.set('updateError', true);
+				self.set('displaySuccessNotification', false);
+				self.set('displayErrorNotification', true);
 			});
 		}
 	}

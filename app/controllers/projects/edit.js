@@ -2,6 +2,7 @@ import Ember from 'ember';
 import ENV from '../../config/environment';
 
 export default Ember.Controller.extend({
+	needs: ['projects/specific'],
 	file: null,
 	displayDropbox: false,
 	displayImagePreview: true,
@@ -12,6 +13,7 @@ export default Ember.Controller.extend({
 			var model = this.get('model');
 			var changes = model.changedAttributes();
 			var formData = new FormData();
+			var specificController = this.get('controllers.projects/specific');
 
 			if(this.get('file') && !model.get('isDirty')){
 				formData.append('screenshot', this.get('file'));
@@ -41,6 +43,12 @@ export default Ember.Controller.extend({
 					headers: {
 						'Content-Type': "application/json"
 					}
+				}).then(function(){
+					specificController.set('displaySuccessNotification', true);
+					specificController.set('displayErrorNotification', false);
+				}, function(){
+					specificController.set('displaySuccessNotification', true);
+					specificController.set('displayErrorNotification', false);
 				});
 			} else{
 				Ember.$.ajax({
@@ -51,6 +59,12 @@ export default Ember.Controller.extend({
 					contentType: false   // tell jQuery not to set contentType
 				}).then(function(response){
 					model.set('screenshot', response.screenshot);
+				}).then(function(){
+					specificController.set('displaySuccessNotification', true);
+					specificController.set('displayErrorNotification', false);
+				}, function(){
+					specificController.set('displaySuccessNotification', true);
+					specificController.set('displayErrorNotification', false);
 				});
 			}
 

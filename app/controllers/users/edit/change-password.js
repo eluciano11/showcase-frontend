@@ -2,9 +2,9 @@ import Ember from 'ember';
 import ENV from '../../../config/environment';
 
 export default Ember.Controller.extend({
+	successMessage: 'Your update was changed successfully.',
+	errorMessage: 'An error occurred. Your updates was not successful.',
 	actions: {
-		updateSuccess: false,
-		updateFail: false,
 		update: function(){
 			var data = this.getProperties('currentPassword', 'password1', 'password2');
 			var self = this;
@@ -16,11 +16,11 @@ export default Ember.Controller.extend({
 					'Content-Type': "application/json"
 				}
 			}).then(function(){
-				self.set('updateSuccess', true);
-				self.set('updateFail', false);
+				self.set('displaySuccessNotification', true);
+				self.set('displayErrorNotification', false);
 			}, function(){
-				self.set('updateSuccess', false);
-				self.set('updateFail', true);
+				self.set('displaySuccessNotification', false);
+				self.set('displayErrorNotification', true);
 			});
 		}
 	}

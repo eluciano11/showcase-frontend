@@ -1,4 +1,5 @@
 {{outlet}}
+{{view 'alerts'}}
 <div class="col-md-12">
 	<div class="add-project">
 		<div class="project-header text-center">
@@ -22,30 +23,7 @@
 <div class="col-md-offset-2 col-md-8">
 	<hr>
 	{{view 'dropbox'}}
-
 	<div class="add-project">
-		{{#if hasSucceeded}}
-			<div class="u-full-width alert success">
-				<p>
-					Your project was added.
-					<span class="u-pull-right" {{action 'dismiss'}}>
-						&#x2715;					
-					</span>					
-				</p>	
-			</div>
-		{{/if}}
-
-		{{#if hasFailed}}
-			<div class="u-full-width alert error">
-				<p>
-					Upps! Something went wrong.
-					<span class="u-pull-right" {{action 'dismiss'}}>
-						&#x2715;					
-					</span>
-				</p>
-			</div>
-		{{/if}}
-
 		<div class="project-story">
 			{{textarea type="text" cols="66" rows="100%" placeholder="Start writing your story" value=story}}
 		</div>

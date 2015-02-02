@@ -13,9 +13,9 @@ export default Ember.Route.extend({
 	},
 	actions: {
 		willTransition: function(){
-		var controller = this.controllerFor('application');
-		controller.set('inAddProject', false);
-		controller.set('normalNav', true);
+			var controller = this.controllerFor('application');
+			controller.set('inAddProject', false);
+			controller.set('normalNav', true);
 		}
 	}
 });
