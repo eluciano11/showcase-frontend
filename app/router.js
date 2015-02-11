@@ -9,17 +9,11 @@ Router.map(function() {
   this.resource("projects", function() {
     this.route("add");
 
-    this.route("specific", {
-      path: "/:project_id"
-    });
+    this.route("specific", { path: "/:project_id" });
 
-    this.route("edit", {
-      path: "/:project_id/edit"
-    });
+    this.route("edit", { path: "/:project_id/edit" });
 
-    this.route("delete", {
-      path: "/:project_id/delete"
-    });
+    this.route("delete", { path: "/:project_id/delete" });
   });
 
   this.resource("users", function() {
