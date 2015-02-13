@@ -5,8 +5,8 @@ export default Ember.View.extend({
 	actions: {
 		dismiss: function(){
 			var controller = this.get('controller');
-			if (controller.get('displaySuccessNotification')) { controller.set('displaySuccessNotification', false) };
-			if (controller.get('displayErrorNotification')) { controller.set('displayErrorNotification', false) };
+			if (controller.get('displaySuccessNotification')) { controller.set('displaySuccessNotification', false); }
+			if (controller.get('displayErrorNotification')) { controller.set('displayErrorNotification', false); }
 		}
 	}
 });

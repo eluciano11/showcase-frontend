@@ -229,3 +229,38 @@ textarea{
 .notification-content{
 	position: absolute;
 }
+.search input{
+	border: none;
+}
+.search input:focus{
+	box-shadow: none;
+	outline: none;
+}
+.small-img{
+	width:35px;
+	height:35px;
+}
+.search-user-img{
+	width:50px;
+	height: 50px;	
+}
+.search-users-bottom-space{
+	margin-bottom: 5%;
+}
+.no-margin-bottom p{
+	margin-bottom: 0;
+	margin-top: 2%;
+}
+.result-content{
+	padding-top: 5%;
+}
+.result{
+	padding-bottom: 5%;
+}
+.result h2{
+	margin-top: 0;
+}
+.medium-img{
+	width:100px;
+	height: 100px;
+}

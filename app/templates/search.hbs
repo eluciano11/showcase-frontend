@@ -1,1 +1,83 @@
 {{outlet}}
+<form {{action 'search' on='submit'}} role="form">
+	<div class="search">
+		<h1>
+			{{input class="col-md-12" type="text" placeholder="Search something..." value=search_term autofocus=search_term}}
+		</h1>
+	</div>
+</form>
+<div class="result-content">
+	<div class="col-md-8">
+		<section class="project-results">
+			<h4>Projects</h4>
+			<hr>
+			{{#if projects}}
+				<section>
+					{{#each project in projects}}
+						<div class="col-md-12 result">
+							<h2>{{project.title}}</h2>
+							<p>{{project.summary}}</p>
+							{{link-to 'Read More' 'projects.specific' project.id}}
+						</div>	
+					{{/each}}
+				</section>
+			{{else}}
+				<div class="nothing-found">
+					<h3>
+						No results to display.
+					</h3>
+				</div>
+			{{/if}}
+		</section>
+		<section>
+			<h4>Universities</h4>
+			<hr>
+			{{#if universities}}
+				<section>
+					{{#each university in universities}}
+						<div class="col-md-12 result">
+							<div class="col-md-3 pull-left">
+								<img {{bind-attr src="university.emblem"}} class="img-circle medium-img">
+							</div>
+							<div class="col-md-9">
+								<h3>{{university.name}} {{university.town}}</h3>
+								{{link-to 'View Projects' 'universities.specific' university.id}}
+							</div>
+						</div>	
+					{{/each}}
+				</section>
+			{{else}}
+				<div class="nothing-found">
+					<h3>
+						No results to display.
+					</h3>
+				</div>
+			{{/if}}
+		</section>
+	</div>
+	<div class="col-md-4">
+		<section>
+			<h4>Users</h4>
+			<hr>
+			{{#if users}}
+				<section>
+					{{#each user in users}}
+						<div class="col-md-2">
+							<img {{bind-attr src=user.gravatarUrl}} class="img-circle search-user-img pull-left">
+						</div>
+						<div class="col-md-10 search-users-bottom-space no-margin-bottom">
+							<p>{{user.firstName}} {{user.lastName}}</p>
+							{{link-to 'View Profile' 'users.specific' user.id}}
+						</div>
+					{{/each}}
+				</section>
+			{{else}}
+				<div class="nothing-found">
+					<h3>
+						No results to display.
+					</h3>
+				</div>
+			{{/if}}
+		</section>
+	</div>
+</div>

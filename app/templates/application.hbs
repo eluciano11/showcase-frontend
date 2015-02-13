@@ -27,7 +27,7 @@
 			{{#if session.isAuthenticated}}
 				<li class="dropdown pull-right">
 		            <a href="#" id="current-user-gravatar" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-						<img {{bind-attr src=session.currentUser.gravatarUrl}} class="img-circle" width="35px" height="35px">
+						<img {{bind-attr src=session.currentUser.gravatarUrl}} class="img-circle small-img">
 		            </a>
 		            <ul class="dropdown-menu" role="menu">
 		                <li>
