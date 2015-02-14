@@ -1,1 +1,24 @@
-{{outlet}}
+<div class="col-md-12">
+	<div class="header text-center">
+		<h1>{{university.name}} {{university.town}}</h1>
+	</div>
+</div>
+<div class="col-md-offset-3">
+	<div class="col-md-8">
+		<hr>
+		<div class="projects">
+			<div class="text-center">
+				{{#each project in projects}}
+					<div class="project">
+						<h2>{{project.title}}</h2>
+						<p>{{project.summary}}</p>
+						<p>Published {{transform-date project.createdAt}}</p>
+							{{link-to "Read More" "projects.specific" project.id}}
+						<hr>
+					</div>
+				{{/each}}		
+			</div>
+		</div>
+	</div>
+</div>
+
