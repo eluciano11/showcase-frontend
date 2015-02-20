@@ -5,9 +5,27 @@ export default Ember.Controller.extend({
 	displayImagePreview: false,
 	displayDropbox: true,
 	displayPreviewButtons: false,
-	dropboxMessage: 'Drop a cover image here.',
+	dropboxMessage: 'Drop a screenshot here.',
 	successMessage: 'Your project was added successfully.',
 	errorMessage: 'Your project was not added.',
+	displayPictureSelector: true,
+	coverOptions: [
+		{
+			"img": "http://localhost:8000/media/screenshot/2015/01/20/in-love-dog.gif",
+		},
+		{
+			"img": "http://localhost:8000/media/screenshot/2015/01/27/true_story_bro_BnJS7Vu.jpg",
+		},
+		{
+			"img": "http://localhost:8000/media/screenshot/2015/01/20/in-love-dog.gif",
+		},
+		{
+			"img": "http://localhost:8000/media/screenshot/2015/01/20/in-love-dog.gif",
+		},
+		{
+			"img": "http://localhost:8000/media/screenshot/2015/01/20/in-love-dog.gif",
+		}
+	],
 	actions: {
 		add: function(){
 			var data = this.getProperties('title', 'summary', 'university', 'department', 'story');
@@ -37,6 +55,18 @@ export default Ember.Controller.extend({
 				self.set('displayErrorNotification', true);
 				self.set('displaySuccessNotification', false);
 			});
+		},
+		coverPreview: function(src){
+			this.set('coverPreview', src);
+			this.set('displayPictureSelector', false);
+			this.set('displayCoverPreviewButtons', true);
+		},
+		saveCover: function(){
+			this.set('displayCoverPreviewButtons', false);
+		},
+		cancelCover: function(){
+			this.set('displayCoverPreviewButtons', false)
+			this.set('displayPictureSelector', true);
 		}
 	}
 });
