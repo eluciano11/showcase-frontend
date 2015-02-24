@@ -11,24 +11,27 @@ export default Ember.Controller.extend({
 	displayPictureSelector: true,
 	coverOptions: [
 		{
-			"img": "http://localhost:8000/media/screenshot/2015/01/20/in-love-dog.gif",
+			"img": 'https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A41%3A51.jpg',
 		},
 		{
-			"img": "http://localhost:8000/media/screenshot/2015/01/27/true_story_bro_BnJS7Vu.jpg",
+			"img": 'https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A43%3A37.jpg',
 		},
 		{
-			"img": "http://localhost:8000/media/screenshot/2015/01/20/in-love-dog.gif",
+			"img": 'https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A43%3A34.jpg',
 		},
 		{
-			"img": "http://localhost:8000/media/screenshot/2015/01/20/in-love-dog.gif",
+			"img": 'https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A42%3A42.jpg',
 		},
 		{
-			"img": "http://localhost:8000/media/screenshot/2015/01/20/in-love-dog.gif",
+			"img": 'https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A42%3A37.jpg',
+		},
+		{
+			"img": 'https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A42%3A29.jpg',
 		}
 	],
 	actions: {
 		add: function(){
-			var data = this.getProperties('title', 'summary', 'university', 'department', 'story');
+			var data = this.getProperties('title', 'summary', 'university', 'department', 'story', 'cover');
 			
 			var formData = new FormData();
 			formData.append('title', data.title);
@@ -37,6 +40,7 @@ export default Ember.Controller.extend({
 			formData.append('department', data.department);
 			formData.append('story', data.story);
 			formData.append('screenshot', this.get('file'));
+			formData.append('cover', this.get('coverPreview'));
 
 			var self = this;
 
@@ -65,7 +69,7 @@ export default Ember.Controller.extend({
 			this.set('displayCoverPreviewButtons', false);
 		},
 		cancelCover: function(){
-			this.set('displayCoverPreviewButtons', false)
+			this.set('displayCoverPreviewButtons', false);
 			this.set('displayPictureSelector', true);
 		}
 	}
