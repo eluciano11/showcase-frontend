@@ -9,5 +9,6 @@ export default DS.Model.extend({
 	screenshot: DS.attr('string'),
 	story: DS.attr('string'),
 	university: DS.attr('number'),
-	department: DS.attr('number')
+	department: DS.attr('number'),
+	cover: DS.attr('string')
 });

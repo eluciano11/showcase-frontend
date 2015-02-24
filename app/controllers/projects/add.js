@@ -5,12 +5,33 @@ export default Ember.Controller.extend({
 	displayImagePreview: false,
 	displayDropbox: true,
 	displayPreviewButtons: false,
-	dropboxMessage: 'Drop a cover image here.',
+	dropboxMessage: 'Drop a screenshot here.',
 	successMessage: 'Your project was added successfully.',
 	errorMessage: 'Your project was not added.',
+	displayPictureSelector: true,
+	coverOptions: [
+		{
+			"img": 'https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A41%3A51.jpg',
+		},
+		{
+			"img": 'https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A43%3A37.jpg',
+		},
+		{
+			"img": 'https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A43%3A34.jpg',
+		},
+		{
+			"img": 'https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A42%3A42.jpg',
+		},
+		{
+			"img": 'https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A42%3A37.jpg',
+		},
+		{
+			"img": 'https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A42%3A29.jpg',
+		}
+	],
 	actions: {
 		add: function(){
-			var data = this.getProperties('title', 'summary', 'university', 'department', 'story');
+			var data = this.getProperties('title', 'summary', 'university', 'department', 'story', 'cover');
 			
 			var formData = new FormData();
 			formData.append('title', data.title);
@@ -19,6 +40,7 @@ export default Ember.Controller.extend({
 			formData.append('department', data.department);
 			formData.append('story', data.story);
 			formData.append('screenshot', this.get('file'));
+			formData.append('cover', this.get('coverPreview'));
 
 			var self = this;
 
@@ -37,6 +59,18 @@ export default Ember.Controller.extend({
 				self.set('displayErrorNotification', true);
 				self.set('displaySuccessNotification', false);
 			});
+		},
+		coverPreview: function(src){
+			this.set('coverPreview', src);
+			this.set('displayPictureSelector', false);
+			this.set('displayCoverPreviewButtons', true);
+		},
+		saveCover: function(){
+			this.set('displayCoverPreviewButtons', false);
+		},
+		cancelCover: function(){
+			this.set('displayCoverPreviewButtons', false);
+			this.set('displayPictureSelector', true);
 		}
 	}
 });
