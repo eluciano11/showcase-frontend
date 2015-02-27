@@ -7,6 +7,7 @@ export default Ember.Controller.extend({
 	actions: {
 		create: function(){
 			var data = this.getProperties('firstName', 'lastName', 'email', 'password');
+			console.log(data);
 			var self = this;
 			Ember.$.ajax({
 				url: ENV.APP.backendHost + ENV.APP.backendNamespace + '/auth/signup',
