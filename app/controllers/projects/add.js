@@ -45,7 +45,7 @@ export default Ember.Controller.extend({
 			var self = this;
 
 			Ember.$.ajax({
-				url: 'http://localhost:8000/api/projects',
+				url: 'http://show-case.herokuapp.com/api/projects',
 				type: 'POST',
 				data: formData,
 				processData: false,  // tell jQuery not to process the data

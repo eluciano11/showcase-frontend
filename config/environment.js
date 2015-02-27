@@ -16,7 +16,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      backendHost: 'http://localhost:8000/',
+      backendHost: 'http://show-case.herokuapp.com/',
       backendNamespace: 'api'
     }
   };
@@ -27,7 +27,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.APP.API_HOST = 'http://localhost:8000';
+    ENV.APP.API_HOST = 'http://show-case.herokuapp.com/';
   }
 
   if (environment === 'test') {
@@ -43,23 +43,23 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.API_HOST = 'http://localhost:8000';
+    ENV.APP.API_HOST = 'http://show-case.herokuapp.com/';
   }
 
   ENV['simple-auth'] = {
     authorizer: 'simple-auth-authorizer:token',
     //this is added because of the cross platform authentication.
-    crossOriginWhitelist: ['http://localhost:8000']
+    crossOriginWhitelist: ['http://show-case.herokuapp.com/']
   };
 
   ENV['simple-auth-token'] = {
     //this is for development. 
-    serverTokenEndpoint: 'http://localhost:8000/api/auth/login',
+    serverTokenEndpoint: 'http://show-case.herokuapp.com/api/auth/login',
     identificationField: 'email',
     tokenPropertyName: 'token',
     authorizationPrefix: 'JWT ',
     authorizationHeaderName: 'Authorization',
-    crossOriginWhitelist: ['http://localhost:8000'],
+    crossOriginWhitelist: ['http://show-case.herokuapp.com/'],
   };
 
   return ENV;
