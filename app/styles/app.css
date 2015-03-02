@@ -323,3 +323,15 @@ textarea{
 .cover h1, p{
 	color: #bbb;
 }
+.loading-container{
+	position: relative;
+}
+.loading{
+	position: absolute;
+	margin-top: 15%;
+	left: 45%;
+}
+.loading-image img{
+	height: 100px;
+	width: 100px;
+}
