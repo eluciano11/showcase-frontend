@@ -1,7 +1,9 @@
 <div class="col-md-12">
 	<div class="header text-center">
 		<h1>Projects</h1>
-		<p>Share your project expiriences with others {{link-to "here" "projects.add"}}.</p>
+		{{#if session.isAuthenticated}}
+			<p>Share your project expiriences with others {{link-to "here" "projects.add"}}.</p>
+		{{/if}}
 	</div>
 	<div class="col-md-offset-3">
 		<div class="col-md-8">

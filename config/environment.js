@@ -49,18 +49,19 @@ module.exports = function(environment) {
 
   ENV['simple-auth'] = {
     authorizer: 'simple-auth-authorizer:token',
-    //this is added because of the cross platform authentication.
-    crossOriginWhitelist: [site]
+    crossOriginWhitelist: [site],
+    routeAfterAuthentication: 'projects/index'
   };
 
   ENV['simple-auth-token'] = {
     //this is for development. 
     serverTokenEndpoint: site + '/api/auth/login',
+    routeAfterAuthentication: 'projects/index',
     identificationField: 'email',
     tokenPropertyName: 'token',
     authorizationPrefix: 'JWT ',
     authorizationHeaderName: 'Authorization',
-    crossOriginWhitelist: [site],
+    crossOriginWhitelist: [site]
   };
 
   return ENV;
