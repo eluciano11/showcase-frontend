@@ -6,7 +6,7 @@
 </div>
 	{{#each user in model}}
 	<div class="col-md-4 info-card">
-		<img {{bind-attr class=":rounded-img :pull-left" src="user.gravatarUrl"}}>
+		<img {{bind-attr class=":img-circle :pull-left" src="user.gravatarUrl"}}>
 		<div class="user-info">
 			<h3>
 				{{#link-to 'users.specific' user.id}}

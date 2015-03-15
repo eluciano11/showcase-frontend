@@ -1,7 +1,7 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
-  var site = 'https://show-case.herokuapp.com/';
+  var site = 'http://127.0.0.1:8000';
   var ENV = {
     modulePrefix: 'showcase-frontend',
     environment: environment,

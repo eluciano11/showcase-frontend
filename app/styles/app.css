@@ -197,7 +197,11 @@ textarea{
 	height: 100vh;
 }
 .sp-screenshot{
-	width: 926px;
+	width: 100%;
+	height:450px;
+}
+.sp-story{
+	padding-top: 2%;
 }
 .sp-header{
 	position: absolute;
@@ -233,11 +237,8 @@ textarea{
 	position: absolute;
 }
 .search input{
-	border: none;
-}
-.search input:focus{
-	box-shadow: none;
-	outline: none;
+	border-color: rgba(187, 187, 187, 0.12);
+	border-radius: 5px;
 }
 .small-img{
 	width:35px;
@@ -255,7 +256,7 @@ textarea{
 	margin-top: 2%;
 }
 .result-content{
-	padding-top: 5%;
+	padding-top: 3%;
 }
 .result{
 	padding-bottom: 5%;
@@ -310,7 +311,7 @@ textarea{
 }
 .cover-preview{
 	width: 746px;
-	height: 340px;
+	height: 400px;
 	padding:2%;
 }
 .picture-preview{
@@ -334,4 +335,9 @@ textarea{
 .loading-image img{
 	height: 100px;
 	width: 100px;
+}
+.nav-background li:hover{
+	background-color: #FAFAFA;
+	font-weight: 400;
+	color:#777; 
 }

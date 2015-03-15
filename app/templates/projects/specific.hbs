@@ -6,10 +6,16 @@
 	<p>{{transform-date model.createdAt}}</p>
 </div>
 <div class="col-md-offset-1">
-	<div class="col-md-10">
-		<div class="sp-content">
-			<img {{bind-attr src=model.screenshot class=":sp-screenshot"}}>
-			<p>{{model.story}}</p>
+	<div class="sp-content">
+		<div class="col-md-12">
+			<div class="col-md-offeset-1 col-md-10">
+				<img {{bind-attr src=model.screenshot class=":sp-screenshot"}}>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-offset-1 col-md-8 sp-story">
+				<p>{{model.story}}</p>
+			</div>
 		</div>
 	</div>
 </div>

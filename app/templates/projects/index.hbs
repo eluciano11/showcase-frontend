@@ -3,6 +3,9 @@
 		<h1>Projects</h1>
 		{{#if session.isAuthenticated}}
 			<p>Share your project expiriences with others {{link-to "here" "projects.add"}}.</p>
+		{{else}}
+			<p>{{link-to "Register" "users.register"}} to showcase your project. <br>
+			If you have an account you can login {{link-to "here" "login"}}.</p>
 		{{/if}}
 	</div>
 	<div class="col-md-offset-3">
@@ -19,8 +22,14 @@
 									{{link-to "Read More" "projects.specific" project.id}}
 								<hr>
 							</div>
+						{{else}}
+							<div class="nothing-found">
+								<h1>
+									No projects to display.
+								</h1>
+							</div>
 						{{/if}}
-					{{/each}}		
+					{{/each}}	
 				</div>
 			</div>
 		</div>
