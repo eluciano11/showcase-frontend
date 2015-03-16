@@ -1,7 +1,7 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
-  var site = 'https://show-case.herokuapp.com';
+  var site = 'https://showcased.herokuapp.com';
   var ENV = {
     modulePrefix: 'showcase-frontend',
     environment: environment,
@@ -49,18 +49,17 @@ module.exports = function(environment) {
 
   ENV['simple-auth'] = {
     authorizer: 'simple-auth-authorizer:token',
-    crossOriginWhitelist: [site],
-    routeAfterAuthentication: 'projects/index'
+    crossOriginWhitelist: [site]
   };
 
   ENV['simple-auth-token'] = {
-    //this is for development. 
     serverTokenEndpoint: site + '/api/auth/login',
-    routeAfterAuthentication: 'projects/index',
     identificationField: 'email',
+    passwordField: 'password',
     tokenPropertyName: 'token',
-    authorizationPrefix: 'JWT ',
+    authorizationPrefix: 'JWT',
     authorizationHeaderName: 'Authorization',
+    headers: {},
     crossOriginWhitelist: [site]
   };
 

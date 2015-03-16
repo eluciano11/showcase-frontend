@@ -110,9 +110,14 @@ textarea{
 	margin-bottom: 5%;
 }
 .add-project input{
-	border: none;
 	text-align: center;
 	margin-bottom: 1%;
+	border-color: rgba(187, 187, 187, 0.12);
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+	overflow: none;
+	outline: none;
 }
 .add-project input:focus{
 	box-shadow: none;
@@ -138,6 +143,8 @@ textarea{
     border-top:none;
     border-radius: 0;
     font-size: 14px;
+    outline: none;
+    text-align: center;
 }
 .add-project option{
     text-align: center;
@@ -344,4 +351,10 @@ textarea{
 	background-color: #FAFAFA;
 	font-weight: 400;
 	color:#777; 
+}
+.select-section{
+	padding-top: 2%;
+}
+.top-space{
+	padding-top: 1%;
 }

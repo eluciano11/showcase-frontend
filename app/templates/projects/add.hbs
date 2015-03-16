@@ -4,18 +4,20 @@
 	<div class="add-project">
 		<div class="project-header text-center">
 			<h1>
-				{{input class="col-md-12" type="text" placeholder="Add your project title" value=title autofocus="autofocus"}}
+				{{input class="col-md-offset-2 col-md-8" type="text" placeholder="Add your project title" value=title autofocus="autofocus"}}
 			</h1>
 			<br>
 			<h4>
-				{{input class="col-md-12" type="text" placeholder="Add a summary of your article" value=summary}}
+				{{input class="col-md-offset-2 col-md-8 top-space" type="text" placeholder="Add a summary of your article" value=summary}}
 			</h4>
 			<br>
-			<div class="form-group">
-				{{view "select" content=universities optionValuePath="content.id" optionLabelPath="content.name" id="university" value=university prompt="Please select your university."}}
-			</div>
-			<div class="form-group text-center">
-				{{view "select" content=departments optionValuePath="content.id" optionLabelPath="content.name" id="departments" value=department prompt="Please select your department."}}
+			<div class="col-md-12 select-section">
+				<div class="form-group">
+					{{view "select" content=universities optionValuePath="content.id" optionLabelPath="content.name" id="university" value=university prompt="Please select your university."}}
+				</div>
+				<div class="form-group">
+					{{view "select" content=departments optionValuePath="content.id" optionLabelPath="content.name" id="departments" value=department prompt="Please select your department."}}
+				</div>
 			</div>
 		</div>
 	</div>
