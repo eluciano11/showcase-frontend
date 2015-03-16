@@ -4,6 +4,8 @@
 	<div class="content">
 		<h1>Showcase</h1>
 		<h4>Start sharing your hard work with the world.</h4>
-		{{link-to 'Register Now' 'users.register' class="btn btn-primary btn-lg btn-block no-background"}}
+		{{#unless session.isAuthenticated}}
+			{{link-to 'Register Now' 'users.register' class="btn btn-primary btn-lg btn-block no-background"}}
+		{{/unless}}
 	</div>
 </div>

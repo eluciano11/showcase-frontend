@@ -124,10 +124,12 @@ textarea{
 	outline: none;
 }
 .add-project textarea{
-	border: none;
 	font-family: Helvetica;
 	font-size: 20px;
 	line-height: 30px;
+	border-color: rgba(187, 187, 187, 0.12);
+	overflow: none;
+	outline: none;
 }
 .add-project textarea:focus{
 	box-shadow: none;
