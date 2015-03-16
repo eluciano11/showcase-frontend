@@ -60,7 +60,9 @@
 			<div class="pull-right">
 				<ul class="nav navbar-nav navbar-form navbar-right">
 					{{#if inAddProject}}
-						<a class="btn btn-success"{{action "add"}}>Save</a>
+						{{#if display}}
+							<a class="btn btn-success"{{action "add"}}>Save</a>
+						{{/if}}
 					{{/if}}
 
 					{{#if inEditProject}}

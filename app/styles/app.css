@@ -238,7 +238,11 @@ textarea{
 }
 .search input{
 	border-color: rgba(187, 187, 187, 0.12);
-	border-radius: 5px;
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+	overflow: none;
+	outline: none;
 }
 .small-img{
 	width:35px;

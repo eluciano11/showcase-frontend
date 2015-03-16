@@ -1,6 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	needs: ['application'],
+	title: '',
+	summary: '',
+	university: null,
+	department: null,
+	story: '',
+	screenshot: '',
 	file: null,
 	displayImagePreview: false,
 	displayDropbox: true,
@@ -9,6 +16,15 @@ export default Ember.Controller.extend({
 	successMessage: 'Your project was added successfully.',
 	errorMessage: 'Your project was not added.',
 	displayPictureSelector: true,
+	isReadyToSave: function(){
+		var data = this.getProperties('title', 'summary', 'university', 'department', 'story', 'cover');
+
+		var status = (data.title !== '' && data.summary !== '' && data.university != null && data.department != null &&
+			data.story !== '' && this.get('file') && this.get('coverPreview') !== '');
+
+		var applicationController = this.get('controllers.application');
+		applicationController.set('display', status);
+	}.observes('title', 'summary', 'university', 'department', 'story', 'file', 'coverPreview'),
 	coverOptions: [
 		{
 			"img": 'https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A41%3A51.jpg',

@@ -6,6 +6,7 @@ export default Ember.Controller.extend(ApplicationRouteMixin, {
 	inAddProject: false,
 	inEditProject: false,
 	normalNav: true,
+	isDisabled: true,
 	actions: {
 		add: function(){
 			this.get('controllers.projects/add').send('add');
