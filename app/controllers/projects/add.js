@@ -1,5 +1,5 @@
 import Ember from 'ember';
-
+import ENV from '../../config/environment'
 export default Ember.Controller.extend({
 	needs: ['application'],
 	title: '',
@@ -61,11 +61,14 @@ export default Ember.Controller.extend({
 			var self = this;
 
 			Ember.$.ajax({
-				url: 'http://show-case.herokuapp.com/api/projects',
+				url: ENV.APP.backendHost + '/' + ENV.APP.backendNamespace + '/projects',
 				type: 'POST',
 				data: formData,
 				processData: false,  // tell jQuery not to process the data
-  				contentType: false   // tell jQuery not to set contentType
+  				contentType: false,   // tell jQuery not to set contentType
+  				headers: {
+  					Authorization: 'JWT ' + self.get('session.token')
+  				}
 			}).then(function(response){
 				self.set('displaySuccessNotification', true);
 				self.set('displayErrorNotification', false);

@@ -57,7 +57,7 @@ module.exports = function(environment) {
     identificationField: 'email',
     passwordField: 'password',
     tokenPropertyName: 'token',
-    authorizationPrefix: 'JWT',
+    authorizationPrefix: 'JWT ',
     authorizationHeaderName: 'Authorization',
     headers: {},
     crossOriginWhitelist: [site]
