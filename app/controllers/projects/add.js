@@ -26,6 +26,9 @@ export default Ember.Controller.extend({
 		var applicationController = this.get('controllers.application');
 		applicationController.set('display', status);
 	}.observes('title', 'summary', 'university', 'department', 'story', 'file', 'coverPreview'),
+	expandSize: function(){
+
+	}.observes('story'),
 	coverOptions: [
 		{
 			"img": 'https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A41%3A51.jpg',
