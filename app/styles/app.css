@@ -284,25 +284,19 @@ textarea{
 .home-cover-image{
 	position: absolute;
 	margin-top: -2%;
-	margin-left: -5.8%;
+	margin-left: -6%;
 	background-size: cover;
 	width: 100%;
 	height: 100vh;
 }
 .home{
-	position:relative;
 	z-index: 100;
 	margin-top: 5%;
 }
-.content{
-	position: absolute;
-}
 .content h1{
-	text-align: right;
 	font-size: 50px;
 }
 .content h4{
-	text-align: right;
 	font-weight: lighter;
 }
 .no-background, .no-background:hover, .no-background:active, .no-background:focus, .no-background.active{
@@ -354,9 +348,19 @@ textarea{
 	font-weight: 400;
 	color:#777; 
 }
+.active{
+	background-color: #FAFAFA;
+}
 .select-section{
 	padding-top: 2%;
 }
 .top-space{
 	padding-top: 1%;
+}
+.custom-progress{
+	width: 50%;
+	margin-bottom: 0;
+	max-width: 50%;
+	margin-top: 15px;
+	margin-left: 35%;
 }

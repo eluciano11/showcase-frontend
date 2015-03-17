@@ -1,11 +1,11 @@
 {{outlet}}
-<img src="https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A44%3A17.jpg" class="home-cover-image">
-<div class="col-md-4 pull-right home">
-	<div class="content">
+<img src="https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A44%3A17.jpg" class="home-cover-image img-responsive">
+<div class="col-md-offset-8 col-md-4 home">
+	<div class="content text-right">
 		<h1>Showcase</h1>
 		<h4>Start sharing your hard work with the world.</h4>
 		{{#unless session.isAuthenticated}}
-			{{link-to 'Register Now' 'users.register' class="btn btn-primary btn-lg btn-block no-background"}}
+			{{link-to 'Register Now' 'users.register' class="btn btn-primary btn-lg no-background col-md-12"}}
 		{{/unless}}
 	</div>
 </div>

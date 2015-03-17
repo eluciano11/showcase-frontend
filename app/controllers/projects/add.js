@@ -13,22 +13,52 @@ export default Ember.Controller.extend({
 	displayImagePreview: false,
 	displayDropbox: true,
 	displayPreviewButtons: false,
+	filledFieldsCount: 0,
 	dropboxMessage: 'Drop a screenshot here.',
 	successMessage: 'Your project was added successfully.',
 	errorMessage: 'Your project was not added.',
 	displayPictureSelector: true,
 	isReadyToSave: function(){
-		var data = this.getProperties('title', 'summary', 'university', 'department', 'story', 'cover');
+		var data = this.getProperties('title', 'summary', 'university', 'department', 'story');
 
-		var status = (data.title !== '' && data.summary !== '' && data.university != null && data.department != null &&
-			data.story !== '' && this.get('file') && this.get('coverPreview') !== '');
+		var status = null;
+
+		var completedArray = [];
+		for(var key in data){
+			if (data[key] !== '' && data[key] != null){
+				completedArray.push(key);
+			}
+		}
+
+		if(this.get('file') && this.get('coverPreview')){
+			completedArray.push('file', 'coverPreview');
+		} else if (this.get('file')){
+			completedArray.push('file');
+		} else if(this.get('coverPreview')){
+			completedArray.push('coverPreview');
+		}
+
+
+		if (completedArray.length === 7){
+			status = true;
+		} else {
+			status = false;
+		}
 
 		var applicationController = this.get('controllers.application');
+		
+		if (status){
+			applicationController.set('progressBar', '100%');
+		} else {
+			if (completedArray.length !== 0){
+				applicationController.set('progressBar', ((15 * completedArray.length)  + '%'));
+			} else {
+				applicationController.set('progressBar', '5%');
+			}
+		}
+
 		applicationController.set('display', status);
 	}.observes('title', 'summary', 'university', 'department', 'story', 'file', 'coverPreview'),
-	expandSize: function(){
-
-	}.observes('story'),
 	coverOptions: [
 		{
 			"img": 'https://s3-us-west-2.amazonaws.com/com-showcase/images/IMG_2015-02-23+12%3A41%3A51.jpg',

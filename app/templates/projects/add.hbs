@@ -22,30 +22,32 @@
 		</div>
 	</div>
 </div>
-<div class="col-md-offset-2 col-md-8">
-	<div class="cover">
-		<hr>
-		<div class="text-center">
-			<h1>Cover Image</h1>
-			<p>Select a picture to use as a cover in your post.</p> 
-		</div>
-		{{#if coverPreview}}
-			<div class="cover-preview">
-				<img {{bind-attr src=coverPreview class=:picture-preview}}>
+<div class="col-md-12">
+	<div class="col-md-offset-2 col-md-8">
+		<div class="cover">
+			<hr>
+			<div class="text-center">
+				<h1>Cover Image</h1>
+				<p>Select a picture to use as a cover in your post.</p> 
 			</div>
-		{{/if}}
-		<div class="picture-selector">
-			<div class="col-md-12">
-				{{#each image in coverOptions}}
-					<div class="col-md-3 cover-options">
-						<img {{bind-attr src=image.img class=:cover-thumbnails}} {{action 'coverPreview' image.img}}>
-					</div>
-				{{/each}}
+			{{#if coverPreview}}
+				<div class="cover-preview">
+					<img {{bind-attr src=coverPreview class=:picture-preview:img-responsive}}>
+				</div>
+			{{/if}}
+			<div class="picture-selector">
+				<div class="col-md-12">
+					{{#each image in coverOptions}}
+						<div class="col-md-3 cover-options">
+							<img {{bind-attr src=image.img class=:cover-thumbnails}} {{action 'coverPreview' image.img}}>
+						</div>
+					{{/each}}
+				</div>
 			</div>
+			<p class="pull-right">
+				Images from <a href="http://deathtothestockphoto.com/" target="_blank">Death To Stock</a>
+			</p>
 		</div>
-		<p class="pull-right">
-			Images from <a href="http://deathtothestockphoto.com/" target="_blank">Death To Stock</a>
-		</p>
 	</div>
 </div>
 <div class="col-md-offset-2 col-md-8">

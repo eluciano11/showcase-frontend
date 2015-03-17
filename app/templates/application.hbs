@@ -75,6 +75,15 @@
 					{{/if}}
 				</ul>
 			</div>
+			{{#if inAddProject}}
+				<div>
+					<div class="progress custom-progress">
+						<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" {{bind-attr style=progressBarWidth}}>
+						    {{progressBar}}
+						</div>
+					</div>
+				</div>
+			{{/if}}
 		{{/if}}
 	</div>
   </div>

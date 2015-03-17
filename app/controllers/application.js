@@ -7,6 +7,11 @@ export default Ember.Controller.extend(ApplicationRouteMixin, {
 	inEditProject: false,
 	normalNav: true,
 	isDisabled: true,
+	progressBar: '5%',
+	progressBarWidth: 'width: 5%;',
+	progressBarWatcher: function(){
+		this.set('progressBarWidth', ('width: ' + this.get('progressBar') + ';'));
+	}.observes('progressBar'),
 	actions: {
 		add: function(){
 			this.get('controllers.projects/add').send('add');
