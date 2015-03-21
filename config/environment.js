@@ -59,6 +59,7 @@ module.exports = function(environment) {
     tokenPropertyName: 'token',
     authorizationPrefix: 'JWT ',
     authorizationHeaderName: 'Authorization',
+    routeAfterAuthentication: 'projects.index',
     headers: {},
     crossOriginWhitelist: [site]
   };
